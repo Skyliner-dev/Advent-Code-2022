@@ -1,4 +1,3 @@
-//still in progress
 fun main() {
     val l = readln().toInt()
     val ruckSack = MutableList(l) { readln() }
@@ -18,7 +17,23 @@ fun main() {
             }
         }
     }
-    println(sum(list.toCharArray()))
+    val l2 = mutableListOf<String>()
+    val a = list.toCharArray()
+    var cnt = 0
+    val len = a.size
+    for (i in a.indices) {
+        cnt++
+        if (i==len-1) {
+            break
+        }
+        if (a[i]!=a[i+1]) {
+            l2.add("${a[i]}$cnt")
+            cnt = 0
+        }
+    }
+    val regx = Regex("[0-9]")
+    val l3 = l2.joinToString().replace(regx,"").replace(", ","") + list.last()
+    println(sum(l3.toCharArray()))
 }
 fun priority(c:Char) :Int{
     return when(c) {
