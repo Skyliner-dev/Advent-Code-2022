@@ -1,4 +1,5 @@
 fun main() {
+    //input by count
     val l = readln().toInt()
     var c = 0
     repeat(l) {
